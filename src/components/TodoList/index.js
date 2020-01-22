@@ -4,9 +4,13 @@ import TodoItem from './TodoItem'
 export default class TodoList extends Component {
   render() {
     return (
-      <ul>
-        <TodoItem />
-      </ul>
+      <>
+        {
+          this.props.todos.map(todo => (
+            <TodoItem todo={todo} />
+          ))
+        }
+      </>
     )
   }
 }

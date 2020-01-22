@@ -4,7 +4,7 @@ export default class TodoItem extends Component {
   render() {
     return (
       <li>
-        TodoItem
+        {this.props.todo}
       </li>
     )
   }
