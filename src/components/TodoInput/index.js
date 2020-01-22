@@ -23,6 +23,7 @@ export default class TodoInput extends Component {
   }
 
   setButtonValue = () => {
+    // 箭头函数里返回表达式也要写return，否则只执行而返回undefined
     return 'Add #' + this.props.id
   }
 
