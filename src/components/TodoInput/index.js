@@ -14,9 +14,12 @@ export default class TodoInput extends Component {
       inputValue: e.target.value
     })
   }
-
+  
   click = () => {
     this.props.click(this.state.inputValue)
+    this.setState({
+      inputValue: ''
+    })
   }
 
   setButtonValue = () => {
