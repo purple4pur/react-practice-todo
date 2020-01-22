@@ -11,7 +11,7 @@ export default class TodoInput extends Component {
 
   getTxt = (e) => {
     this.setState({
-      inputValue: e.currentTarget.value
+      inputValue: e.target.value
     })
   }
 
