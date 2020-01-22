@@ -19,13 +19,26 @@ export default class TodoInput extends Component {
     this.props.click(this.state.inputValue)
   }
 
+  setButtonValue = () => {
+    return 'Add #' + this.props.id
+  }
+
   render() {
     return (
-      <>
-        <span>What needs to be done?</span>
-        <input type="text" value={this.state.inputValue} onChange={this.getTxt} />
-        <button onClick={this.click}>Add #{this.props.id}</button>
-      </>
+      <form>
+        <span>What needs to be done?</span><br />
+        <input
+          type="text"
+          value={this.state.inputValue}
+          onChange={this.getTxt}
+        />
+        <input
+          type="submit"
+          value={this.setButtonValue()}
+          onClick={this.click}
+          formAction="#"
+        />
+      </form>
     )
   }
 }
