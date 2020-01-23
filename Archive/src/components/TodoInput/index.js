@@ -3,33 +3,29 @@ import React, { Component } from 'react'
 export default class TodoInput extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       inputValue: ''
     }
+    this.getTxt = this.getTxt.bind(this)
+    this.click = this.click.bind(this)
   }
 
-  getTxt = (e) => {
+  getTxt(e) {
     this.setState({
       inputValue: e.target.value
     })
   }
   
-  click = () => {
+  click() {
     this.props.click(this.state.inputValue)
     this.setState({
       inputValue: ''
     })
   }
 
-  setButtonValue = () => {
-    // 箭头函数里返回表达式也要写return，否则只执行而返回undefined
-    return 'Add #' + this.props.id
-  }
-
   render() {
     return (
-      <form>
+      <form action="#" onSubmit={this.click}>
         <span>What needs to be done?</span><br />
         <input
           type="text"
@@ -38,9 +34,7 @@ export default class TodoInput extends Component {
         />
         <input
           type="submit"
-          value={this.setButtonValue()}
-          onClick={this.click}
-          formAction="#"
+          value={'Add #' + this.props.id}
         />
       </form>
     )
