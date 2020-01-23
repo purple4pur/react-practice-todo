@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PureComponent } from 'react'
 import { render } from 'react-dom'
 
 class TodoApp extends Component {
@@ -46,14 +46,15 @@ class TodoApp extends Component {
   }
 }
 
-class TodoList extends Component {
+class TodoList extends PureComponent {
   render() {
+    console.log('TodoList render')
     return (
       <ul>
         {
           this.props.todos.map(todo => (
             <li key={todo.id}>
-              {todo.text}
+              <input type="checkbox" />{todo.text}
             </li>
           ))
         }
@@ -68,7 +69,7 @@ class TodoInput extends Component {
       <form onSubmit={this.props.handelSubmit}>
         <label>
           What needs to be done?
-        </label>
+        </label><br />
         <input
           type="text"
           value={this.props.text}
