@@ -10,7 +10,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-> Make sure you have all necessary node modules.
+**Make sure you have all necessary modules.**<br />
+**Use `npm i -S react react-dom react-scripts` to install modules.**
 
 In the project directory, you can run:
 
