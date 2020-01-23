@@ -4,7 +4,7 @@
 > Date: 2020 / 01 / 22<br />
 > License: MIT
 
-This practice completes a todo list with React App. I've been learning React these days and write this todo list for practice. Two versions are included. The First is in `./Archive/src`, which I write with multi-components within `./Archive/src/components` and written by myself. In the second version in `./src` I referred to offical version placed on [React offical homepage](https://reactjs.org/), and finally finished by my own. Besides, it's the first time I use git in my project, I might also practice git skills in this repo.
+This practice completes a todo list with React App. I've been learning React these days and write this todo list for practice. Two versions are included. The First is in `./Archive/src`, which I write with multi-components within `./Archive/src/components` and written by myself. In the second version in `./src` I read official version placed on [React official homepage](https://reactjs.org/) for reference, and finally finished by my own. Besides, it's the first time I use git in my project, I might also practice git skills in this repo.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br />
 
