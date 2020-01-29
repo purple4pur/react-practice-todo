@@ -1,13 +1,15 @@
-import React, { Component } from 'react'
+import React, { PureComponent as Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class TodoList extends Component {
+class TodoList extends Component {
   render() {
+    console.log(this.props.todos)
     return (
       <ul>
         {
           this.props.todos.map(todo => (
             <li key={todo.id}>
-              <input type="checkbox" />{todo.text}
+              <input type="checkbox" />{todo.title}
             </li>
           ))
         }
@@ -15,3 +17,11 @@ export default class TodoList extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  todos: state.todo.list
+})
+
+export default connect(
+  mapStateToProps
+)(TodoList)

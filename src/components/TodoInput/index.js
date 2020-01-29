@@ -1,22 +1,41 @@
-import React, { Component } from 'react'
+import React, { PureComponent as Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class TodoInput extends Component {
+import { changeInput, addTodo } from '../../redux/actions'
+
+class TodoInput extends Component {
   render() {
     return (
-      <form onSubmit={this.props.handelSubmit}>
+      <form>
         <label>
           What needs to be done?
         </label><br />
         <input
           type="text"
-          value={this.props.text}
-          onChange={this.props.handleChange}
+          value={this.props.inputValue}
+          onChange={this.handleChange}
         />
-        <input
-          type="submit"
-          value={'Add #' + this.props.cnt}
-        />
+        <button onClick={this.handleClick}>{'Add #' + this.props.id}</button>
       </form>
     )
   }
+
+  handleChange = (e) => {
+    this.props.changeInput(e.target.value)
+  }
+
+  handleClick = (e) => {
+    e.preventDefault()
+    this.props.addTodo(this.props.inputValue)
+  }
 }
+
+const mapStateToProps = (state) => ({
+  inputValue: state.todo.inputValue,
+  id: state.todo.id
+})
+
+export default connect(
+  mapStateToProps,
+  { changeInput, addTodo }
+)(TodoInput)
