@@ -8,16 +8,18 @@ class TodoList extends Component {
     return (
       <ul>
         {
-          this.props.todos.map(todo => (
-            <li key={todo.id}>
-              <input
-                type="checkbox"
-                checked={todo.isCompleted}
-                onChange={this.handleChange.bind(this, todo.id)}
-              />
-              {todo.title}
-            </li>
-          ))
+          this.props.todos.length
+            ? this.props.todos.map(todo => (
+              <li key={todo.id}>
+                <input
+                  type="checkbox"
+                  checked={todo.isCompleted}
+                  onChange={this.handleChange.bind(this, todo.id)}
+                />
+                {todo.title}
+              </li>
+            ))
+            : <span>Add your first todo now!</span>
         }
       </ul>
     )
