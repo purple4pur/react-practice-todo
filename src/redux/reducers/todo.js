@@ -23,6 +23,19 @@ export default (state = initState, action) => {
         ...state,
         inputValue: action.payload.value
       }
+    case actionTypes.TOGGLE_TODO:
+      return {
+        ...state,
+        list: state.list.map(item => {
+          if (item.id === action.payload.id) {
+            return {
+              ...item,
+              isCompleted: !item.isCompleted
+            }
+          }
+          return item
+        })
+      }
     default:
       return state
   }

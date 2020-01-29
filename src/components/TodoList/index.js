@@ -1,20 +1,30 @@
 import React, { PureComponent as Component } from 'react'
 import { connect } from 'react-redux'
 
+import { toggleTodo } from '../../redux/actions'
+
 class TodoList extends Component {
   render() {
-    console.log(this.props.todos)
     return (
       <ul>
         {
           this.props.todos.map(todo => (
             <li key={todo.id}>
-              <input type="checkbox" />{todo.title}
+              <input
+                type="checkbox"
+                checked={todo.isCompleted}
+                onChange={this.handleChange.bind(this, todo.id)}
+              />
+              {todo.title}
             </li>
           ))
         }
       </ul>
     )
+  }
+
+  handleChange = (id) => {
+    this.props.toggleTodo(id)
   }
 }
 
@@ -23,5 +33,6 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  { toggleTodo }
 )(TodoList)
