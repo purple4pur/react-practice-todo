@@ -1,7 +1,7 @@
 import React, { PureComponent as Component } from 'react'
 import { connect } from 'react-redux'
 
-import { changeInput, addTodo } from '../../redux/actions'
+import { changeInput, addTodo, getTodo } from 'redux/actions'
 
 class TodoInput extends Component {
   render() {
@@ -15,7 +15,8 @@ class TodoInput extends Component {
           value={this.props.inputValue}
           onChange={this.handleChange}
         />
-        <button onClick={this.handleClick}>{'Add #' + this.props.id}</button>
+        <button onClick={this.handleClickAdd}>{'Add #' + this.props.id}</button>
+        <button onClick={this.handleClickGet}>Get todos online!</button>
       </form>
     )
   }
@@ -24,9 +25,14 @@ class TodoInput extends Component {
     this.props.changeInput(e.target.value)
   }
 
-  handleClick = (e) => {
+  handleClickAdd = (e) => {
     e.preventDefault()
     this.props.addTodo(this.props.inputValue)
+  }
+
+  handleClickGet = (e) => {
+    e.preventDefault()
+    this.props.getTodo()
   }
 }
 
@@ -37,5 +43,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  { changeInput, addTodo }
+  { changeInput, addTodo, getTodo }
 )(TodoInput)

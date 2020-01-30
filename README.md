@@ -8,10 +8,16 @@ This practice completes a todo list with React App. I've been learning React the
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br />
 
-## Available Scripts
-
 **Make sure you have all necessary modules.**<br />
-**Use `npm i -S react react-dom react-scripts` to install modules.**
+**To install modules:**
+
+```js
+npm i -S react react-dom react-scripts
+npm i -S redux react-redux redux-thunk
+npm i -S axios
+```
+
+## Available Scripts
 
 In the project directory, you can run:
 

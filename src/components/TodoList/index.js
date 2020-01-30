@@ -5,23 +5,26 @@ import { toggleTodo } from '../../redux/actions'
 
 class TodoList extends Component {
   render() {
+    console.log(this.props.todos)
     return (
-      <ul>
+      <ol>
         {
-          this.props.todos.length
-            ? this.props.todos.map(todo => (
-              <li key={todo.id}>
-                <input
-                  type="checkbox"
-                  checked={todo.isCompleted}
-                  onChange={this.handleChange.bind(this, todo.id)}
-                />
-                {todo.title}
-              </li>
-            ))
-            : <span>Add your first todo now!</span>
+          this.props.isLoading
+            ? <span>Loading...</span>
+            : this.props.todos.length
+              ? this.props.todos.map(todo => (
+                <li key={todo.id}>
+                  <input
+                    type="checkbox"
+                    checked={todo.completed}
+                    onChange={this.handleChange.bind(this, todo.id)}
+                  />
+                  {todo.title}
+                </li>
+              ))
+              : <span>Add your first todo now!</span>
         }
-      </ul>
+      </ol>
     )
   }
 
@@ -31,7 +34,8 @@ class TodoList extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  todos: state.todo.list
+  todos: state.todo.list,
+  isLoading: state.todo.isLoading
 })
 
 export default connect(
